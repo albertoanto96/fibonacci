@@ -12,28 +12,37 @@ import java.io.InterruptedIOException;
 
             int operando1= Integer.parseInt(request.getParameter("operando1"));
             int operando2=Integer.parseInt(request.getParameter("operando2"));
+            String operacion=request.getParameter("operacion");
             ServletOutputStream out =response.getOutputStream();
             int sol=0;
-            if("SUMA".equals(request.getParameter("operacion"))){
+            if("SUMA".equals(operacion)){
                 sol=operando1+operando2;
                 out.print("<html><body><h1>"+sol+"</h1></body></html>");
             }
-            if("RESTA".equals(request.getParameter("operacion"))){
+            if("RESTA".equals(operacion)){
                 sol=operando1-operando2;
                 out.print("<html><body><h1>"+sol+"</h1></body></html>");
             }
-            if("MULTIPLICACION".equals(request.getParameter("operacion"))){
+            if("MULTIPLICACION".equals(operacion)){
                 sol=operando1*operando2;
                 out.print("<html><body><h1>"+sol+"</h1></body></html>");
             }
-            if("DIVISION".equals(request.getParameter("operacion"))){
+            if("DIVISION".equals(operacion)){
                 sol=operando1/operando2;
                 out.print("<html><body><h1>"+sol+"</h1></body></html>");
             }
 
         }
         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-            response.getOutputStream().println("<html><body><h1>SERVLET</h1></body></html>");
-        }
+            int fibo1=1;
+            int fibo2=1;
+            int numero=Integer.parseInt(request.getParameter("sucesiones"));
+            response.getOutputStream().println("<html><body><h1>"+fibo1+"</h1></body></html>");
+            for(int i=2;i<=numero;i++){
+                response.getOutputStream().println("<html><body><h1>"+fibo2+"</h1></body></html>");
+                fibo2 = fibo1 + fibo2;
+                fibo1 = fibo2 - fibo1;
+            }
+}
     }
 

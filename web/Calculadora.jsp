@@ -10,17 +10,17 @@
 <head>
     <title>Calculadora</title>
 
-    <form action="MyServlet.java" method="post">
-        <select Operación="operacion">
+    <form action="/MyServlet" method="post">
+        <select operacion="operacion" name="operacion">
             <option value="SUMA">SUMA</option>
             <option value="RESTA">RESTA</option>
-            <option value="MULTIPLICACION">MULTIPLICACIÓN</option>
+            <option value="MULTIPLICACION">MULTIPLICACION</option>
             <option value="DIVISION">DIVISIÓN</option>
         </select>
         Operando 1:<br>
         <input type="number" name="operando1" value=""><br>
         Operando 2:<br>
-        <input type="number" name="operando2" value=""><br><br>
+        <input type="number" name="operando2" value=""><br>
         <input type="submit" value="Submit">
     </form>
 

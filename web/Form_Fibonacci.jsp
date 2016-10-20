@@ -9,11 +9,11 @@
 <html>
 <head>
     <h1>Fibonacci</h1>
-    <form>
+    <form action="/MyServlet" method="get">
         Selecciona la cantidad de sucesiones:<br>
-        <input type="text" name="sucesiones"><br>
+        <input type="number" name="sucesiones"><br>
+        <input type="submit" value="Submit">
     </form>
-    <a href="Fibonacci.jsp">Aceptar</a>
 </head>
 <body>
 
