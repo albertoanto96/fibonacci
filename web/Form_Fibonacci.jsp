@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+<link href="style.css" rel ="stylesheet">
 <head>
     <h1>Fibonacci</h1>
     <form action="/MyServlet" method="get">

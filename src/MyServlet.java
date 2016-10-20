@@ -14,22 +14,22 @@ import java.io.InterruptedIOException;
             int operando2=Integer.parseInt(request.getParameter("operando2"));
             String operacion=request.getParameter("operacion");
             ServletOutputStream out =response.getOutputStream();
-            int sol=0;
+            double sol=0;
             if("SUMA".equals(operacion)){
                 sol=operando1+operando2;
-                out.print("<html><body><h1>"+sol+"</h1></body></html>");
+                out.print("<html><body><h1>EL RESULTADO DE TU "+operacion+" ES: "+sol+"</h1></body></html>");
             }
             if("RESTA".equals(operacion)){
                 sol=operando1-operando2;
-                out.print("<html><body><h1>"+sol+"</h1></body></html>");
+                out.print("<html><body><h1>EL RESULTADO DE TU "+operacion+" ES: "+sol+"</h1></body></html>");
             }
             if("MULTIPLICACION".equals(operacion)){
                 sol=operando1*operando2;
-                out.print("<html><body><h1>"+sol+"</h1></body></html>");
+                out.print("<html><body><h1>EL RESULTADO DE TU "+operacion+" ES: "+sol+"</h1></body></html>");
             }
             if("DIVISION".equals(operacion)){
                 sol=operando1/operando2;
-                out.print("<html><body><h1>"+sol+"</h1></body></html>");
+                out.print("<html><body><h1>EL RESULTADO DE TU "+operacion+" ES: "+sol+"</h1></body></html>");
             }
 
         }
@@ -37,9 +37,10 @@ import java.io.InterruptedIOException;
             int fibo1=1;
             int fibo2=1;
             int numero=Integer.parseInt(request.getParameter("sucesiones"));
-            response.getOutputStream().println("<html><body><h1>"+fibo1+"</h1></body></html>");
+            response.getOutputStream().println("<html><body><h1>Has solicitado "+numero+" sucesiones</h1></body></html>");
+            response.getOutputStream().println("<html><body><h1>1:"+fibo1+"</h1></body></html>");
             for(int i=2;i<=numero;i++){
-                response.getOutputStream().println("<html><body><h1>"+fibo2+"</h1></body></html>");
+                response.getOutputStream().println("<html><body><h1>"+i+": "+fibo2+"</h1></body></html>");
                 fibo2 = fibo1 + fibo2;
                 fibo1 = fibo2 - fibo1;
             }
