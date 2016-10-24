@@ -13,9 +13,9 @@
 
     <form action="/MyServlet" method="post">
         Operando 1:<br>
-        <input type="number" name="operando1" value=""><br>
+        <input type="number" name="operando1" step="any"><br>
         Operando 2:<br>
-        <input type="number" name="operando2" value=""><br>
+        <input type="number" name="operando2" step="any"><br>
         <select operacion="operacion" name="operacion">
             <option value="SUMA">SUMA</option>
             <option value="RESTA">RESTA</option>

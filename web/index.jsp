@@ -12,6 +12,7 @@
 
     <h1>Aplicación</h1>
     <h2>Selecciona una acción:</h2>
+    <p><a href="V2.jsp">V2</a></p>
     <p><a href="Form_Fibonacci.jsp">Fibonacci</a></p>
     <p><a href="Calculadora.jsp">Calculadora</a><p>
 
