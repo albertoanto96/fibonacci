@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet(name="MyServlet2")
 public class MyServlet2 extends HttpServlet {
@@ -40,16 +41,14 @@ public class MyServlet2 extends HttpServlet {
         int fibo2 = 1;
         int j = 0;
         int numero = Integer.parseInt(request.getParameter("sucesiones"));
-        int[] a = new int[numero];
-        a[j] = fibo1;
-        j++;
+        List<Integer> fibo= new ArrayList<Integer>();
+        fibo.add(fibo1);
         for (int i = 2; i <= numero; i++) {
-            a[j] = fibo2;
+            fibo.add(fibo2);
             fibo2 = fibo1 + fibo2;
             fibo1 = fibo2 - fibo1;
-            j++;
         }
-        request.setAttribute("fibo", a);
+        request.setAttribute("fibo", fibo);
         request.getRequestDispatcher("FibonacciV2.jsp").forward(request, response);
     }
 }
