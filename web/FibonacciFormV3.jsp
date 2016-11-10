@@ -12,11 +12,25 @@
 </head>
 <body>
 <h1>Fibonacci</h1>
-<form action="/MyServlet2" method="get">
-    Selecciona la cantidad de sucesiones:<br>
-    <input type="number" name="sucesiones"><br>
-    <input id="button" type="submit" value="Submit">
-</form>
+<form>
+    Primer valor:<br>
+    <input type="text" name="v1">
+    <br>
+
+<form>
+<button>calcular</button>
+
+<script>
+    $(document).ready(function(){
+        $("button").click(function(){
+            $.get("/MyServlet3", function(data,status){
+                alert("data:"+data);
+            });
+        });
+    });
+
+</script>
 
 </body>
 </html>
+

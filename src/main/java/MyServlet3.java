@@ -9,8 +9,8 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name="MyServlet2")
-public class MyServlet2 extends HttpServlet {
+@WebServlet(name="MyServlet3")
+public class MyServlet3 extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         float operando1 = Float.parseFloat(request.getParameter("operando1"));
@@ -33,11 +33,11 @@ public class MyServlet2 extends HttpServlet {
             sol = operando1 / operando2;
 
         }
-        request.setAttribute("result", sol);
-        request.getRequestDispatcher("CalculadoraV2print.jsp").forward(request, response);
+        PrintWriter out = response.getWriter();
+        out.println(sol);
     }
 
-     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         int fibo1 = 1;
         int fibo2 = 1;
         int numero = Integer.parseInt(request.getParameter("sucesiones"));
@@ -48,7 +48,8 @@ public class MyServlet2 extends HttpServlet {
             fibo2 = fibo1 + fibo2;
             fibo1 = fibo2 - fibo1;
         }
-        request.setAttribute("fibo", fibo);
-        request.getRequestDispatcher("FibonacciV2.jsp").forward(request, response);
+        PrintWriter out = response.getWriter();
+        out.println(fibo);
+
     }
 }
