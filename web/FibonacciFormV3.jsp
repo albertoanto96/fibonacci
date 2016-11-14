@@ -14,17 +14,20 @@
 <h1>Fibonacci</h1>
 <form>
     Primer valor:<br>
-    <input type="text" name="v1">
+    <input id="sucesiones" type="text" name="v1">
     <br>
-
-<form>
+    </form>
 <button>calcular</button>
-
+<h2 id="res"></h2>
 <script>
     $(document).ready(function(){
         $("button").click(function(){
-            $.get("/MyServlet3", function(data,status){
-                alert("data:"+data);
+            var sucesiones=~$("#sucesiones").val();
+            $.get("/MyServlet3",{sucesiones:sucesiones}, function(responseJson){
+                var $ul = $("<ul>").appendTo($("#res"));
+                $.each(responseJson,function(index,item){
+                    $("<li>").text(item).appendTo($ul);
+                })
             });
         });
     });

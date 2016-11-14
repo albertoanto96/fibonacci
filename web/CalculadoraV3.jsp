@@ -16,9 +16,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
 </head>
 <body>
+
 <h1>Calculadora</h1>
 
 <form>
@@ -27,28 +27,27 @@
     <br>
     Segundo valor:<br>
     <input id="v2" type="text" name="v2">
-    <select name="operacion">
-        <option id="suma" value="suma">suma</option>
-        <option id="resta" value="resta">resta</option>
-        <option id="multiplicacion" value="multiplicacion">multiplicacion</option>
-        <option id= "division" value="division">division</option>
+    <select id="operacion" name="operacion">
+        <option id="suma" value="SUMA">SUMA</option>
+        <option id="resta" value="RESTA">RESTA</option>
+        <option id="multiplicacion" value="MULTIPLICACION">MULTIPLICACION</option>
+        <option id= "division" value="DIVISION">DIVISION</option>
     </select>
 
 </form>
-    <script>
-    $("button").click(function(){
-        var operando1: $('#v1').val();
-        var operando2: $('#v2').val();
-        var operacion: $('#operacion:selected').text();
-    $.post("/MyServlet3", {
-    operando1: operando1, operando2: operando2, operacion: operacion
-    },
-    function(data, status){
-    alert("Data: " + data + "\nStatus: " + status);
-    });
-    });
-    </script>
 <button>Calcular</button>
-
+<script>
+    $(document).ready(function(){
+        $("button").click(function(){
+            var operando1 = $("#v1").val(); var operando2= $("#v2").val(); operacion= $("#operacion :selected").text();
+            $.post("/MyServlet3", {
+                        operando1 : operando1, operando2: operando2, operacion: operacion
+                    },
+                    function(data, status){
+                        alert("Data: " + data + "\nStatus: " + status);
+                    });
+        });
+    });
+</script>
 </body>
 </html>

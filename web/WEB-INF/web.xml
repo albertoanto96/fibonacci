@@ -29,7 +29,7 @@
 
     <servlet>
         <servlet-name>MyServlet3</servlet-name>
-        <servlet-class>MyServlet3</servlet-class>
+        <servlet-class>servlet.MyServlet3</servlet-class>
 
     </servlet>
 
